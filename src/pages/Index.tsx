@@ -139,6 +139,9 @@ export default function Index() {
           >
             Отличия
           </button>
+          <a href="/quiz" className="font-body text-sm text-white/50 hover:text-white transition-colors duration-200 tracking-wide">
+            Викторина
+          </a>
         </div>
 
         <button
@@ -167,6 +170,9 @@ export default function Index() {
           >
             Отличия
           </button>
+          <a href="/quiz" className="font-display text-3xl font-bold text-white/60 uppercase tracking-widest" onClick={() => setMenuOpen(false)}>
+            Викторина
+          </a>
           <button
             className="mt-4 bg-amber-400 text-black font-display text-sm font-semibold uppercase tracking-widest px-8 py-4"
             onClick={() => { navigate("/differences"); setMenuOpen(false); }}

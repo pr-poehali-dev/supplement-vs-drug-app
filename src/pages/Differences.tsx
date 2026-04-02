@@ -18,6 +18,15 @@ function useInView(threshold = 0.15) {
 }
 
 // ─── Types ──────────────────────────────────────────────────────────────────
+interface GuessProduct {
+  id: number;
+  name: string;
+  type: "bad" | "drug";
+  short_description: string;
+  composition: string;
+  image_url: string;
+}
+
 interface CompareRow {
   criterion: string;
   icon: string;
@@ -494,8 +503,40 @@ export default function Differences() {
         </section>
       </div>
 
+      {/* ── QUIZ CTA ─────────────────────────────────────────────────────── */}
+      <section className="px-6 md:px-12 py-16">
+        <div className="max-w-5xl mx-auto">
+          <div className="relative border border-amber-400/20 bg-amber-400/5 overflow-hidden p-8 md:p-12 flex flex-col md:flex-row items-center gap-8">
+            <div className="absolute top-0 left-0 right-0 h-[2px] bg-amber-400" />
+            <div
+              className="absolute bottom-0 right-0 w-[300px] h-[300px] rounded-full pointer-events-none opacity-10"
+              style={{ background: "radial-gradient(circle, #fbbf24 0%, transparent 70%)", transform: "translate(30%, 30%)" }}
+            />
+            <div className="flex-1 text-center md:text-left">
+              <div className="flex items-center justify-center md:justify-start gap-2 mb-3">
+                <Icon name="Gamepad2" size={16} className="text-amber-400" />
+                <span className="font-body text-xs text-amber-400/80 uppercase tracking-[0.3em]">Проверь себя</span>
+              </div>
+              <h3 className="font-display font-black text-3xl md:text-4xl uppercase text-white mb-3">
+                Теперь пройди <span className="text-amber-400">викторину</span>
+              </h3>
+              <p className="font-body text-white/50 text-sm leading-relaxed max-w-md">
+                10 реальных препаратов с фото и составом. Угадай, что перед тобой — БАД или лекарство.
+              </p>
+            </div>
+            <a
+              href="/quiz"
+              className="flex-shrink-0 flex items-center gap-3 bg-amber-400 text-black font-display font-bold text-sm uppercase tracking-[0.15em] px-8 py-4 hover:bg-amber-300 transition-all duration-200 active:scale-95"
+            >
+              <Icon name="Play" size={16} />
+              Начать викторину
+            </a>
+          </div>
+        </div>
+      </section>
+
       {/* ── BACK BUTTON ─────────────────────────────────────────────────── */}
-      <section className="px-6 md:px-12 py-16 text-center">
+      <section className="px-6 md:px-12 pb-16 text-center">
         <button
           onClick={() => navigate("/")}
           className="group inline-flex items-center gap-3 border border-white/15 text-white/60 font-display text-sm font-semibold uppercase tracking-widest px-8 py-4 hover:border-white/40 hover:text-white transition-all duration-200"
